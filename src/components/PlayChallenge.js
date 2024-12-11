@@ -7,17 +7,17 @@ import {
   Card,
   CardContent,
   Grid,
-  TextField,
+  CircularProgress,
   Dialog,
   DialogTitle,
   DialogContent,
   DialogContentText,
   DialogActions,
-  CircularProgress,
   Snackbar,
   Alert,
+  TextField, // Make sure TextField is imported
 } from "@mui/material";
-import { db } from "../firebase";
+import { db, auth } from "../firebase";
 import {
   collection,
   getDocs,
@@ -29,11 +29,10 @@ import {
   increment,
 } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../firebase";
 
 const PlayChallenge = () => {
   // Authentication State
-  const [user, loading, error] = useAuthState(auth);
+  const [user, loadingUser, errorUser] = useAuthState(auth);
 
   // Challenges State
   const [challenges, setChallenges] = useState([]);
@@ -65,7 +64,7 @@ const PlayChallenge = () => {
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: "",
-    severity: "info", // 'error', 'warning', 'info', 'success'
+    severity: "info",
   });
 
   // User Played Challenges State
@@ -150,27 +149,12 @@ const PlayChallenge = () => {
       } else {
         // First time playing this challenge
         setIsOwnChallenge(false);
-        setOpenAlreadyPlayedDialog(true); // Inform that score will count this time
         setCurrentChallenge(challenge);
         setCurrentQuestionIndex(0);
         setScore(0);
         setFinalScore(0);
         setHintVisible(false);
-
-        // Update playedChallenges in Firestore
-        try {
-          const userPlayedRef = doc(db, "userPlayedChallenges", user.uid);
-          await setDoc(
-            userPlayedRef,
-            {
-              playedChallenges: arrayUnion(challenge.id),
-            },
-            { merge: true } // Ensure document is created if it doesn't exist
-          );
-          setPlayedChallenges([...playedChallenges, challenge.id]);
-        } catch (err) {
-          console.error("Error updating played challenges:", err);
-        }
+        // Do not mark as played here; only after completion
       }
     }
   };
@@ -213,9 +197,11 @@ const PlayChallenge = () => {
     } else {
       setFinalScore(currentScore); // Store final score before resetting
       setOpenEndDialog(true);
-      if (!isOwnChallenge) {
-        // Update leaderboard only if not own challenge
+      if (!isOwnChallenge && !playedChallenges.includes(currentChallenge.id)) {
+        // Update leaderboard only if not own challenge and first-time play
         await updateLeaderboard(currentScore);
+        // Mark challenge as played
+        await markChallengeAsPlayed(currentChallenge.id);
       }
       // Do not reset the game here; wait until dialog is closed
     }
@@ -242,7 +228,7 @@ const PlayChallenge = () => {
         });
       } else {
         await setDoc(leaderboardRef, {
-          playerName: user.displayName || user.email, // Now using displayName
+          playerName: user.displayName || user.email,
           score: currentScore,
         });
       }
@@ -255,7 +241,29 @@ const PlayChallenge = () => {
       });
     }
   };
-  
+
+  // Mark Challenge as Played
+  const markChallengeAsPlayed = async (challengeId) => {
+    try {
+      const userPlayedRef = doc(db, "userPlayedChallenges", user.uid);
+      await setDoc(
+        userPlayedRef,
+        {
+          playedChallenges: arrayUnion(challengeId),
+        },
+        { merge: true }
+      );
+      setPlayedChallenges([...playedChallenges, challengeId]);
+    } catch (err) {
+      console.error("Error updating played challenges:", err);
+      setSnackbar({
+        open: true,
+        message: "Failed to update played challenges.",
+        severity: "error",
+      });
+    }
+  };
+
   // Handle Snackbar Close
   const handleCloseSnackbar = () => {
     setSnackbar({ ...snackbar, open: false });
@@ -291,7 +299,7 @@ const PlayChallenge = () => {
       }}
     >
       {/* Loading State */}
-      {loading && (
+      {loadingUser && (
         <Box
           sx={{
             display: "flex",
@@ -305,19 +313,19 @@ const PlayChallenge = () => {
       )}
 
       {/* Error State */}
-      {error && (
+      {errorUser && (
         <Typography variant="h6" color="error">
-          Error: {error.message}
+          Error: {errorUser.message}
         </Typography>
       )}
 
       {/* Unauthenticated State */}
-      {!loading && !error && !user && (
+      {!loadingUser && !errorUser && !user && (
         <Typography variant="h6">Please log in to play challenges.</Typography>
       )}
 
       {/* Main Content */}
-      {!loading && !error && user && !currentChallenge && (
+      {!loadingUser && !errorUser && user && !currentChallenge && (
         <>
           <Typography variant="h3" gutterBottom sx={{ color: "#ffffff" }}>
             Select a Challenge to Play
@@ -395,7 +403,7 @@ const PlayChallenge = () => {
       )}
 
       {/* Challenge Gameplay */}
-      {!loading && !error && user && currentChallenge && (
+      {!loadingUser && !errorUser && user && currentChallenge && (
         <>
           {/* Challenge Header */}
           <Card
@@ -492,16 +500,15 @@ const PlayChallenge = () => {
         open={openAlreadyPlayedDialog && !isOwnChallenge}
         onClose={handleCloseAlreadyPlayedDialog}
       >
-        <DialogTitle>Challenge In Progress</DialogTitle>
+        <DialogTitle>Challenge Already Played</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            {playedChallenges.includes(currentChallenge?.id)
-              ? "You have already played this challenge before. Your new score will not count towards the leaderboard."
-              : "This is your first time playing this challenge. Your score will count towards the leaderboard."}
+            You have already played this challenge. Your new score will not count
+            towards the leaderboard.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseAlreadyPlayedDialog}>Start</Button>
+          <Button onClick={handleCloseAlreadyPlayedDialog}>OK</Button>
         </DialogActions>
       </Dialog>
 
@@ -514,6 +521,11 @@ const PlayChallenge = () => {
             <DialogContentText>
               Note: Since you played your own challenge, this score does not count
               towards the leaderboard.
+            </DialogContentText>
+          )}
+          {!isOwnChallenge && (
+            <DialogContentText>
+              Thank You for Playing!
             </DialogContentText>
           )}
         </DialogContent>
@@ -529,7 +541,11 @@ const PlayChallenge = () => {
         onClose={handleCloseSnackbar}
         anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
       >
-        <Alert onClose={handleCloseSnackbar} severity={snackbar.severity} sx={{ width: '100%' }}>
+        <Alert
+          onClose={handleCloseSnackbar}
+          severity={snackbar.severity}
+          sx={{ width: "100%" }}
+        >
           {snackbar.message}
         </Alert>
       </Snackbar>

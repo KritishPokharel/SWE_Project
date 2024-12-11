@@ -1,7 +1,23 @@
 // src/components/HowToPlay.js
 import React from "react";
-import { Box, Typography, Container, List, ListItem, ListItemIcon, ListItemText } from "@mui/material";
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import {
+  Box,
+  Typography,
+  Container,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Divider,
+  Link,
+} from "@mui/material";
+import {
+  Login as LoginIcon,
+  Create as CreateIcon,
+  PlayCircleOutline as PlayCircleOutlineIcon,
+  Star as StarIcon,
+  TipsAndUpdates as TipsIcon,
+} from "@mui/icons-material";
 
 const HowToPlay = () => {
   return (
@@ -10,61 +26,274 @@ const HowToPlay = () => {
         minHeight: "100vh",
         background: "linear-gradient(to right, #141e30, #243b55)",
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        textAlign: "center",
         padding: "20px",
-        color: "white",
       }}
     >
       <Container
         sx={{
           background: "rgba(255, 255, 255, 0.95)",
-          padding: "30px",
-          borderRadius: "12px",
-          boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+          padding: "40px",
+          borderRadius: "16px",
+          boxShadow: "0 8px 20px rgba(0,0,0,0.3)",
           color: "#141e30",
-          maxWidth: "700px",
+          maxWidth: "900px",
         }}
       >
-        <Typography variant="h3" gutterBottom>
-          How to Play
+        <Typography variant="h3" gutterBottom align="center">
+          How to Play Challenge Hub
+        </Typography>
+        <Divider sx={{ marginY: "30px" }} />
+
+        {/* Section 1: Logging In */}
+        <Typography variant="h5" gutterBottom>
+          1. Getting Started: Logging In
         </Typography>
         <List>
           <ListItem>
             <ListItemIcon>
-              <CheckCircleIcon color="primary" />
+              <LoginIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="1. Choose a challenge from the list or create your own challenge."
+              primary="a. Access the Challenge Hub Application"
+              secondary="Open your preferred web browser and navigate to the Challenge Hub URL."
             />
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <CheckCircleIcon color="primary" />
+              <LoginIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="2. Answer questions in the challenge to earn points."
+              primary="b. Choose Your Sign-In Method"
+              secondary="You can sign in using your Email and Password or opt for Google Sign-In for quicker authentication."
             />
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <CheckCircleIcon color="primary" />
+              <LoginIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="3. You get two attempts for each question; a hint will be shown after the second attempt."
+              primary="c. Complete the Authentication Process"
+              secondary="Enter your credentials and click 'Login' or 'Sign Up' to access your account. If you encounter any issues, refer to the error messages displayed for guidance."
             />
           </ListItem>
           <ListItem>
             <ListItemIcon>
-              <CheckCircleIcon color="primary" />
+              <LoginIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="4. Complete the challenge and check your score on the leaderboard."
+              primary="d. Navigate to the Dashboard"
+              secondary="Upon successful login, you will be redirected to your personalized dashboard, where you can access all features of the Challenge Hub."
             />
           </ListItem>
         </List>
+
+        <Divider sx={{ marginY: "30px" }} />
+
+        {/* Section 2: Creating a Challenge */}
+        <Typography variant="h5" gutterBottom>
+          2. Creating Your Own Challenge
+        </Typography>
+        <List>
+          <ListItem>
+            <ListItemIcon>
+              <CreateIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="a. Access the 'Create Challenge' Section"
+              secondary="From your dashboard, click on the 'Create Challenge' button to begin crafting your own challenge."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <CreateIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="b. Fill in Challenge Details"
+              secondary="Provide a compelling title and a detailed description for your challenge. Ensure that your questions are clear and engaging."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <CreateIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="c. Add Questions"
+              secondary="For each challenge, add a series of multiple-choice questions. Each question should have at least two options, with one marked as the correct answer. Optionally, you can include a hint to assist players after incorrect attempts."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <CreateIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="d. Review and Publish"
+              secondary="Once all details are filled out, review your challenge for accuracy and completeness. Click 'Publish' to make your challenge available to other users."
+            />
+          </ListItem>
+        </List>
+
+        <Divider sx={{ marginY: "30px" }} />
+
+        {/* Section 3: Playing a Challenge */}
+        <Typography variant="h5" gutterBottom>
+          3. Playing a Challenge
+        </Typography>
+        <List>
+          <ListItem>
+            <ListItemIcon>
+              <PlayCircleOutlineIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="a. Browse Available Challenges"
+              secondary="On your dashboard, explore the list of available challenges. You can use the search bar to find specific challenges or filter them based on categories."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <PlayCircleOutlineIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="b. Select a Challenge to Play"
+              secondary="Click on the 'Play Challenge' button next to your chosen challenge to start playing."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <PlayCircleOutlineIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="c. Answer Questions"
+              secondary="Respond to each multiple-choice question. You have two attempts to answer each question correctly."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <PlayCircleOutlineIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="d. Utilize Hints"
+              secondary="After two incorrect attempts on a question, a hint will be provided to help you deduce the correct answer."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <PlayCircleOutlineIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="e. Complete the Challenge"
+              secondary="Upon answering all questions, your total score will be calculated based on correct answers. If it's your first time playing this challenge, your score will be added to the leaderboard."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <PlayCircleOutlineIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="f. Review Your Performance"
+              secondary="After completing the challenge, review your answers and scores. Reflect on areas of strength and opportunities for improvement."
+            />
+          </ListItem>
+        </List>
+
+        <Divider sx={{ marginY: "30px" }} />
+
+        {/* Section 4: Understanding the Scoring System */}
+        <Typography variant="h5" gutterBottom>
+          4. Understanding the Scoring System
+        </Typography>
+        <List>
+          <ListItem>
+            <ListItemIcon>
+              <StarIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="a. Earning Points"
+              secondary="Each correct answer awards you 10 points. The total score for a challenge is the sum of points from all correct answers."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <StarIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="b. Leaderboard Rankings"
+              secondary="Your cumulative scores from all challenges are displayed on the leaderboard. Strive to climb the rankings by participating in more challenges and improving your scores."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <StarIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="c. Own Challenges"
+              secondary="Scores from challenges you create and play yourself do not contribute to the leaderboard to maintain fairness and competitiveness."
+            />
+          </ListItem>
+        </List>
+
+        <Divider sx={{ marginY: "30px" }} />
+
+        {/* Section 5: Tips and Best Practices */}
+        <Typography variant="h5" gutterBottom>
+          5. Tips and Best Practices
+        </Typography>
+        <List>
+          <ListItem>
+            <ListItemIcon>
+              <TipsIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="a. Take Your Time"
+              secondary="Read each question carefully to increase your chances of selecting the correct answer."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <TipsIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="b. Use Hints Wisely"
+              secondary="Hints are available after two incorrect attempts. Use them strategically to maximize your score."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <TipsIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="c. Regular Participation"
+              secondary="Engage in multiple challenges regularly to improve your skills and climb the leaderboard."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <TipsIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="d. Create Engaging Challenges"
+              secondary="If you're creating challenges, ensure your questions are clear, varied, and provide a good balance of difficulty to engage players effectively."
+            />
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <TipsIcon color="primary" />
+            </ListItemIcon>
+            <ListItemText
+              primary="e. Review Your Performance"
+              secondary="After completing a challenge, review your answers to understand areas for improvement."
+            />
+          </ListItem>
+        </List>
+
+        <Divider sx={{ marginY: "30px" }} />
+
+        <Box sx={{ marginTop: "40px", textAlign: "center" }}>
+          <Typography variant="body2" color="textSecondary">
+            © {new Date().getFullYear()} Challenge Hub. All rights reserved.
+          </Typography>
+        </Box>
       </Container>
     </Box>
   );
