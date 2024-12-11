@@ -16,6 +16,7 @@ import {
 
 const Leaderboard = () => {
   const [leaderboard, setLeaderboard] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchLeaderboard = async () => {
@@ -26,6 +27,8 @@ const Leaderboard = () => {
         setLeaderboard(scores);
       } catch (error) {
         console.error("Error fetching leaderboard:", error);
+      } finally {
+        setLoading(false);
       }
     };
     fetchLeaderboard();
@@ -45,7 +48,7 @@ const Leaderboard = () => {
       <Paper
         sx={{
           padding: "30px",
-          borderRadius: "10px",
+          borderRadius: "12px",
           backgroundColor: "rgba(255, 255, 255, 0.95)",
           maxWidth: "800px",
           width: "100%",
@@ -58,32 +61,42 @@ const Leaderboard = () => {
         >
           Leaderboard
         </Typography>
-        <TableContainer component={Paper} sx={{ borderRadius: "10px" }}>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell sx={{ fontWeight: "bold", color: "#1976d2" }}>
-                  Rank
-                </TableCell>
-                <TableCell sx={{ fontWeight: "bold", color: "#1976d2" }}>
-                  Player Name
-                </TableCell>
-                <TableCell align="right" sx={{ fontWeight: "bold", color: "#1976d2" }}>
-                  Score
-                </TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {leaderboard.map((entry, index) => (
-                <TableRow key={index}>
-                  <TableCell>{index + 1}</TableCell>
-                  <TableCell>{entry.playerName || "Anonymous"}</TableCell>
-                  <TableCell align="right">{entry.score}</TableCell>
+        {loading ? (
+          <Typography variant="h6" sx={{ textAlign: "center", mt: 4 }}>
+            Loading...
+          </Typography>
+        ) : leaderboard.length > 0 ? (
+          <TableContainer component={Paper} sx={{ borderRadius: "10px", marginTop: "20px" }}>
+            <Table>
+              <TableHead>
+                <TableRow>
+                  <TableCell sx={{ fontWeight: "bold", color: "#1976d2" }}>
+                    Rank
+                  </TableCell>
+                  <TableCell sx={{ fontWeight: "bold", color: "#1976d2" }}>
+                    Player Name
+                  </TableCell>
+                  <TableCell align="right" sx={{ fontWeight: "bold", color: "#1976d2" }}>
+                    Score
+                  </TableCell>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </TableContainer>
+              </TableHead>
+              <TableBody>
+                {leaderboard.map((entry, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{index + 1}</TableCell>
+                    <TableCell>{entry.playerName || "Anonymous"}</TableCell>
+                    <TableCell align="right">{entry.score}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        ) : (
+          <Typography variant="h6" sx={{ textAlign: "center", marginTop: "20px" }}>
+            No scores yet.
+          </Typography>
+        )}
       </Paper>
     </Box>
   );

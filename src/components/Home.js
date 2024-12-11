@@ -1,6 +1,6 @@
 // src/components/Home.js
 import React from "react";
-import { Box, Typography, Button, Container } from "@mui/material";
+import { Box, Typography, Button, Container, Grid, Paper } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import ChallengeHubLogo from "../assets/logo.jpeg"; // Ensure the path is correct
 
@@ -20,18 +20,19 @@ const Home = () => {
       }}
     >
       {/* Logo */}
-      <img
-        src={ChallengeHubLogo}
-        alt="Challenge Hub Logo"
-        style={{
-          width: "150px",
-          marginBottom: "20px",
-          borderRadius: "10px",
-        }}
-      />
+      <Paper elevation={4} sx={{ padding: "20px", borderRadius: "50%", backgroundColor: "white", marginBottom: "20px" }}>
+        <img
+          src={ChallengeHubLogo}
+          alt="Challenge Hub Logo"
+          style={{
+            width: "150px",
+            borderRadius: "50%",
+          }}
+        />
+      </Paper>
 
       {/* Title */}
-      <Typography variant="h2" gutterBottom>
+      <Typography variant="h2" gutterBottom sx={{ fontWeight: "bold" }}>
         Welcome to Challenge Hub
       </Typography>
 

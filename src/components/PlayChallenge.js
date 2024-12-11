@@ -14,6 +14,8 @@ import {
   DialogContentText,
   DialogActions,
   CircularProgress,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import { db } from "../firebase";
 import {
@@ -148,7 +150,7 @@ const PlayChallenge = () => {
       } else {
         // First time playing this challenge
         setIsOwnChallenge(false);
-        setOpenAlreadyPlayedDialog(true); // Inform that score won't count this time
+        setOpenAlreadyPlayedDialog(true); // Inform that score will count this time
         setCurrentChallenge(challenge);
         setCurrentQuestionIndex(0);
         setScore(0);
@@ -158,9 +160,13 @@ const PlayChallenge = () => {
         // Update playedChallenges in Firestore
         try {
           const userPlayedRef = doc(db, "userPlayedChallenges", user.uid);
-          await updateDoc(userPlayedRef, {
-            playedChallenges: arrayUnion(challenge.id),
-          });
+          await setDoc(
+            userPlayedRef,
+            {
+              playedChallenges: arrayUnion(challenge.id),
+            },
+            { merge: true } // Ensure document is created if it doesn't exist
+          );
           setPlayedChallenges([...playedChallenges, challenge.id]);
         } catch (err) {
           console.error("Error updating played challenges:", err);
@@ -207,8 +213,8 @@ const PlayChallenge = () => {
     } else {
       setFinalScore(currentScore); // Store final score before resetting
       setOpenEndDialog(true);
-      if (!isOwnChallenge && playedChallenges.includes(currentChallenge.id)) {
-        // Update leaderboard only if not own challenge and it's not the first play
+      if (!isOwnChallenge) {
+        // Update leaderboard only if not own challenge
         await updateLeaderboard(currentScore);
       }
       // Do not reset the game here; wait until dialog is closed
@@ -236,7 +242,7 @@ const PlayChallenge = () => {
         });
       } else {
         await setDoc(leaderboardRef, {
-          playerName: user.displayName || user.email,
+          playerName: user.displayName || user.email, // Now using displayName
           score: currentScore,
         });
       }
@@ -249,7 +255,7 @@ const PlayChallenge = () => {
       });
     }
   };
-
+  
   // Handle Snackbar Close
   const handleCloseSnackbar = () => {
     setSnackbar({ ...snackbar, open: false });
@@ -486,15 +492,16 @@ const PlayChallenge = () => {
         open={openAlreadyPlayedDialog && !isOwnChallenge}
         onClose={handleCloseAlreadyPlayedDialog}
       >
-        <DialogTitle>Playing an Already Played Challenge</DialogTitle>
+        <DialogTitle>Challenge In Progress</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            You have already played this challenge before. This time, your score will
-            count towards the leaderboard.
+            {playedChallenges.includes(currentChallenge?.id)
+              ? "You have already played this challenge before. Your new score will not count towards the leaderboard."
+              : "This is your first time playing this challenge. Your score will count towards the leaderboard."}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseAlreadyPlayedDialog}>OK</Button>
+          <Button onClick={handleCloseAlreadyPlayedDialog}>Start</Button>
         </DialogActions>
       </Dialog>
 
@@ -516,26 +523,16 @@ const PlayChallenge = () => {
       </Dialog>
 
       {/* Snackbar for Notifications */}
-      {snackbar.open && (
-        <Dialog
-          open={snackbar.open}
-          onClose={handleCloseSnackbar}
-        >
-          <DialogTitle>
-            {snackbar.severity === "error"
-              ? "Error"
-              : snackbar.severity === "warning"
-              ? "Warning"
-              : "Notification"}
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText>{snackbar.message}</DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleCloseSnackbar}>Close</Button>
-          </DialogActions>
-        </Dialog>
-      )}
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={6000}
+        onClose={handleCloseSnackbar}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert onClose={handleCloseSnackbar} severity={snackbar.severity} sx={{ width: '100%' }}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

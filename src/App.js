@@ -10,6 +10,7 @@ import HowToPlay from "./components/HowToPlay";
 import Login from "./components/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./components/NotFound";
+import MyChallenges from "./components/MyChallenges"; // Import the new component
 
 function App() {
   return (
@@ -30,6 +31,14 @@ function App() {
           element={
             <ProtectedRoute>
               <PlayChallenge />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/my-challenges"
+          element={
+            <ProtectedRoute>
+              <MyChallenges />
             </ProtectedRoute>
           }
         />

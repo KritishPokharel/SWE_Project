@@ -11,7 +11,7 @@ import {
   Menu,
   MenuItem,
 } from "@mui/material";
-import { loginWithGoogle, logout, auth } from "../firebase";
+import { logout, auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 
 const Navbar = () => {
@@ -37,7 +37,7 @@ const Navbar = () => {
           to="/create"
           color="inherit"
           underline="none"
-          sx={{ mx: 2 }}
+          sx={{ mx: 2, "&:hover": { color: "#ff9800" } }}
         >
           Create Challenge
         </Link>
@@ -46,7 +46,7 @@ const Navbar = () => {
           to="/play"
           color="inherit"
           underline="none"
-          sx={{ mx: 2 }}
+          sx={{ mx: 2, "&:hover": { color: "#4caf50" } }}
         >
           Play Challenges
         </Link>
@@ -55,7 +55,7 @@ const Navbar = () => {
           to="/leaderboard"
           color="inherit"
           underline="none"
-          sx={{ mx: 2 }}
+          sx={{ mx: 2, "&:hover": { color: "#2196f3" } }}
         >
           Leaderboard
         </Link>
@@ -64,10 +64,21 @@ const Navbar = () => {
           to="/how-to-play"
           color="inherit"
           underline="none"
-          sx={{ mx: 2 }}
+          sx={{ mx: 2, "&:hover": { color: "#ff9800" } }}
         >
           How to Play
         </Link>
+        {user && (
+          <Link
+            component={RouterLink}
+            to="/my-challenges"
+            color="inherit"
+            underline="none"
+            sx={{ mx: 2, "&:hover": { color: "#4caf50" } }}
+          >
+            My Challenges
+          </Link>
+        )}
 
         {/* User Authentication */}
         {user ? (
@@ -89,12 +100,24 @@ const Navbar = () => {
               }}
             >
               <MenuItem disabled>{user.displayName || user.email}</MenuItem>
-              <MenuItem onClick={() => { logout(); handleClose(); }}>Logout</MenuItem>
+              <MenuItem
+                onClick={() => {
+                  logout();
+                  handleClose();
+                }}
+              >
+                Logout
+              </MenuItem>
             </Menu>
           </>
         ) : (
-          <Button color="inherit" onClick={loginWithGoogle}>
-            Login with Google
+          <Button
+            color="inherit"
+            component={RouterLink}
+            to="/login"
+            sx={{ textTransform: "none" }}
+          >
+            Login
           </Button>
         )}
       </Toolbar>

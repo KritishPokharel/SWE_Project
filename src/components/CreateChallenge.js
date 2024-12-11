@@ -8,11 +8,14 @@ import {
   Paper,
   Grid,
   Container,
+  IconButton,
+  CircularProgress, // Imported CircularProgress
 } from "@mui/material";
 import { db } from "../firebase";
 import { collection, addDoc } from "firebase/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../firebase";
+import DeleteIcon from '@mui/icons-material/Delete'; // Ensure DeleteIcon is imported
 
 const CreateChallenge = () => {
   const [user, loading, error] = useAuthState(auth);
@@ -26,9 +29,13 @@ const CreateChallenge = () => {
     hint: "",
   });
 
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-  if (!user) return <div>Please log in to create a challenge.</div>;
+  if (loading) return (
+    <Box sx={{ textAlign: "center", mt: 4 }}>
+      <CircularProgress />
+    </Box>
+  );
+  if (error) return <Typography color="error">Error: {error.message}</Typography>;
+  if (!user) return <Typography>Please log in to create a challenge.</Typography>;
 
   const handleAddQuestion = () => {
     const { question, options, correctAnswer, hint } = currentQuestion;
@@ -52,6 +59,10 @@ const CreateChallenge = () => {
       correctAnswer: "",
       hint: "",
     });
+  };
+
+  const handleRemoveQuestion = (indexToRemove) => {
+    setQuestions(prev => prev.filter((_, index) => index !== indexToRemove));
   };
 
   const handleSubmit = async () => {
@@ -99,7 +110,7 @@ const CreateChallenge = () => {
           elevation={5}
           sx={{
             padding: "30px",
-            borderRadius: "10px",
+            borderRadius: "12px",
             backgroundColor: "rgba(255, 255, 255, 0.95)",
           }}
         >
@@ -183,7 +194,15 @@ const CreateChallenge = () => {
             Questions Added
           </Typography>
           {questions.map((q, index) => (
-            <Paper key={index} sx={{ padding: "10px", marginBottom: "10px", backgroundColor: "#e8e8e8" }}>
+            <Paper key={index} sx={{ padding: "10px", marginBottom: "10px", backgroundColor: "#e8e8e8", position: "relative" }}>
+              <IconButton
+                aria-label="delete"
+                size="small"
+                onClick={() => handleRemoveQuestion(index)}
+                sx={{ position: "absolute", top: 5, right: 5 }}
+              >
+                <DeleteIcon fontSize="small" />
+              </IconButton>
               <Typography>{index + 1}. {q.question}</Typography>
               <ul>
                 {q.options.map((option, idx) => (
@@ -203,7 +222,7 @@ const CreateChallenge = () => {
             variant="contained"
             color="primary"
             onClick={handleSubmit}
-            sx={{ padding: "10px", marginTop: "20px", fontSize: "18px" }}
+            sx={{ padding: "10px", marginTop: "20px", fontSize: "18px", backgroundColor: "#007BFF", "&:hover": { backgroundColor: "#0056b3" } }}
           >
             Submit Challenge
           </Button>
