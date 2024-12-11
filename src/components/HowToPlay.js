@@ -1,4 +1,5 @@
 // src/components/HowToPlay.js
+
 import React from "react";
 import {
   Box,
@@ -42,7 +43,7 @@ const HowToPlay = () => {
         }}
       >
         <Typography variant="h3" gutterBottom align="center">
-          How to Play Challenge Hub
+          How to Play Howard Trivia
         </Typography>
         <Divider sx={{ marginY: "30px" }} />
 
@@ -56,8 +57,8 @@ const HowToPlay = () => {
               <LoginIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="a. Access the Challenge Hub Application"
-              secondary="Open your preferred web browser and navigate to the Challenge Hub URL."
+              primary="a. Access the Howard Trivia Application"
+              secondary="Open your preferred web browser and navigate to the Howard Trivia URL."
             />
           </ListItem>
           <ListItem>
@@ -84,7 +85,7 @@ const HowToPlay = () => {
             </ListItemIcon>
             <ListItemText
               primary="d. Navigate to the Dashboard"
-              secondary="Upon successful login, you will be redirected to your personalized dashboard, where you can access all features of the Challenge Hub."
+              secondary="Upon successful login, you will be redirected to your personalized dashboard, where you can access all features of Howard Trivia."
             />
           </ListItem>
         </List>
@@ -102,7 +103,7 @@ const HowToPlay = () => {
             </ListItemIcon>
             <ListItemText
               primary="a. Access the 'Create Challenge' Section"
-              secondary="From your dashboard, click on the 'Create Challenge' button to begin crafting your own challenge."
+              secondary="From your dashboard, click on the 'Create Challenge' button to begin crafting your own Howard University-related challenge."
             />
           </ListItem>
           <ListItem>
@@ -111,7 +112,7 @@ const HowToPlay = () => {
             </ListItemIcon>
             <ListItemText
               primary="b. Fill in Challenge Details"
-              secondary="Provide a compelling title and a detailed description for your challenge. Ensure that your questions are clear and engaging."
+              secondary="Provide a compelling title and a detailed description for your challenge. Ensure that your questions are clear, accurate, and relevant to Howard University."
             />
           </ListItem>
           <ListItem>
@@ -129,7 +130,7 @@ const HowToPlay = () => {
             </ListItemIcon>
             <ListItemText
               primary="d. Review and Publish"
-              secondary="Once all details are filled out, review your challenge for accuracy and completeness. Click 'Publish' to make your challenge available to other users."
+              secondary="Once all details are filled out, review your challenge for accuracy and completeness. Click 'Publish' to make your challenge available to other users. **Note:** Your score will not be counted if you play the challenge you created."
             />
           </ListItem>
         </List>
@@ -147,7 +148,7 @@ const HowToPlay = () => {
             </ListItemIcon>
             <ListItemText
               primary="a. Browse Available Challenges"
-              secondary="On your dashboard, explore the list of available challenges. You can use the search bar to find specific challenges or filter them based on categories."
+              secondary="On your dashboard, explore the list of available Howard Trivia challenges. You can use the search bar to find specific challenges or filter them based on categories."
             />
           </ListItem>
           <ListItem>
@@ -156,7 +157,7 @@ const HowToPlay = () => {
             </ListItemIcon>
             <ListItemText
               primary="b. Select a Challenge to Play"
-              secondary="Click on the 'Play Challenge' button next to your chosen challenge to start playing."
+              secondary="Click on the 'Play Challenge' button next to your chosen challenge to start playing. **Important:** Your score will not be counted if you play the same challenge more than once."
             />
           </ListItem>
           <ListItem>
@@ -219,7 +220,7 @@ const HowToPlay = () => {
             </ListItemIcon>
             <ListItemText
               primary="b. Leaderboard Rankings"
-              secondary="Your cumulative scores from all challenges are displayed on the leaderboard. Strive to climb the rankings by participating in more challenges and improving your scores."
+              secondary="Your cumulative scores from all challenges are displayed on the leaderboard. Strive to climb the rankings by participating in more challenges and improving your scores. The user with the highest score will receive exclusive Howard University merchandise!"
             />
           </ListItem>
           <ListItem>
@@ -227,8 +228,12 @@ const HowToPlay = () => {
               <StarIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="c. Own Challenges"
-              secondary="Scores from challenges you create and play yourself do not contribute to the leaderboard to maintain fairness and competitiveness."
+              primary="c. Score Eligibility Rules"
+              secondary="To maintain fairness:
+              
+                Your score will not be counted if you play the challenge you created.
+                Your score will not be counted if you play the same challenge multiple times.
+              "
             />
           </ListItem>
         </List>
@@ -264,7 +269,7 @@ const HowToPlay = () => {
             </ListItemIcon>
             <ListItemText
               primary="c. Regular Participation"
-              secondary="Engage in multiple challenges regularly to improve your skills and climb the leaderboard."
+              secondary="Engage in multiple challenges regularly to improve your knowledge about Howard University and climb the leaderboard."
             />
           </ListItem>
           <ListItem>
@@ -291,7 +296,7 @@ const HowToPlay = () => {
 
         <Box sx={{ marginTop: "40px", textAlign: "center" }}>
           <Typography variant="body2" color="textSecondary">
-            © {new Date().getFullYear()} Challenge Hub. All rights reserved.
+            © {new Date().getFullYear()} Howard Trivia. All rights reserved.
           </Typography>
         </Box>
       </Container>

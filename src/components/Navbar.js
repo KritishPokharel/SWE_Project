@@ -27,7 +27,7 @@ const Navbar = () => {
         {/* App Title */}
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           <Link component={RouterLink} to="/" color="inherit" underline="none">
-            Challenge Hub
+            Howard U Trivia
           </Link>
         </Typography>
 

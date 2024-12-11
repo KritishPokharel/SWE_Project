@@ -2,7 +2,7 @@
 import React from "react";
 import { Box, Typography, Button, Container, Grid, Paper } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
-import ChallengeHubLogo from "../assets/logo.jpeg"; // Ensure the path is correct
+import ChallengeHubLogo from "../assets/logo.png"; // Ensure the path is correct
 
 const Home = () => {
   return (
@@ -26,19 +26,19 @@ const Home = () => {
           alt="Challenge Hub Logo"
           style={{
             width: "150px",
-            borderRadius: "50%",
+            borderRadius: "20%",
           }}
         />
       </Paper>
 
       {/* Title */}
       <Typography variant="h2" gutterBottom sx={{ fontWeight: "bold" }}>
-        Welcome to Challenge Hub
+        Welcome to Howard University Trivia
       </Typography>
 
       {/* Subtitle */}
       <Typography variant="h5" gutterBottom>
-        Create, Play, and Conquer Challenges in a Gamified Learning Experience!
+        Create, Play, and Learn about HU through Gamified Challenges!
       </Typography>
 
       {/* Buttons */}
