@@ -10,16 +10,25 @@ import {
   Avatar,
   Menu,
   MenuItem,
+  Select,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import { logout, auth } from "../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
+import { useTranslation } from 'react-i18next';
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
   const [anchorEl, setAnchorEl] = useState(null);
+  const { t, i18n } = useTranslation();
 
   const handleMenu = (event) => setAnchorEl(event.currentTarget);
   const handleClose = () => setAnchorEl(null);
+
+  const handleLanguageChange = (event) => {
+    i18n.changeLanguage(event.target.value);
+  };
 
   return (
     <AppBar position="static" sx={{ backgroundColor: "#141e30" }}>
@@ -39,7 +48,7 @@ const Navbar = () => {
           underline="none"
           sx={{ mx: 2, "&:hover": { color: "#ff9800" } }}
         >
-          Create Challenge
+          {t('create_challenge')}
         </Link>
         <Link
           component={RouterLink}
@@ -48,7 +57,7 @@ const Navbar = () => {
           underline="none"
           sx={{ mx: 2, "&:hover": { color: "#4caf50" } }}
         >
-          Play Challenges
+          {t('play_challenges')}
         </Link>
         <Link
           component={RouterLink}
@@ -57,7 +66,7 @@ const Navbar = () => {
           underline="none"
           sx={{ mx: 2, "&:hover": { color: "#2196f3" } }}
         >
-          Leaderboard
+          {t('leaderboard')}
         </Link>
         <Link
           component={RouterLink}
@@ -66,7 +75,7 @@ const Navbar = () => {
           underline="none"
           sx={{ mx: 2, "&:hover": { color: "#ff9800" } }}
         >
-          How to Play
+          {t('how_to_play')}
         </Link>
         {user && (
           <Link
@@ -76,9 +85,42 @@ const Navbar = () => {
             underline="none"
             sx={{ mx: 2, "&:hover": { color: "#4caf50" } }}
           >
-            My Challenges
+            {t('my_challenges')}
           </Link>
         )}
+
+        {/* Language Selector */}
+        <FormControl variant="standard" sx={{ minWidth: 120, mx: 2 }}>
+          <InputLabel id="language-selector-label" sx={{ color: "white" }}>
+            {t('select_language')}
+          </InputLabel>
+          <Select
+            labelId="language-selector-label"
+            id="language-selector"
+            value={i18n.language}
+            onChange={handleLanguageChange}
+            label={t('select_language')}
+            sx={{
+              color: "white",
+              '& .MuiSvgIcon-root': {
+                color: "white",
+              },
+              '& .MuiInput-underline:before': {
+                borderBottomColor: "white",
+              },
+              '& .MuiInput-underline:hover:before': {
+                borderBottomColor: "#ff9800",
+              },
+              '& .MuiInput-underline:after': {
+                borderBottomColor: "#ff9800",
+              },
+            }}
+          >
+            <MenuItem value="en">{t('language_english')}</MenuItem>
+            <MenuItem value="fr">{t('language_french')}</MenuItem>
+            <MenuItem value="es">{t('language_spanish')}</MenuItem>
+          </Select>
+        </FormControl>
 
         {/* User Authentication */}
         {user ? (
@@ -106,7 +148,7 @@ const Navbar = () => {
                   handleClose();
                 }}
               >
-                Logout
+                {t('logout')}
               </MenuItem>
             </Menu>
           </>
@@ -117,7 +159,7 @@ const Navbar = () => {
             to="/login"
             sx={{ textTransform: "none" }}
           >
-            Login
+            {t('login')}
           </Button>
         )}
       </Toolbar>

@@ -11,6 +11,7 @@ import Login from "./components/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import NotFound from "./components/NotFound";
 import MyChallenges from "./components/MyChallenges"; // Import the new component
+import './i18n'; // Ensure i18n is initialized
 
 function App() {
   return (

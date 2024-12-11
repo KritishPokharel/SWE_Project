@@ -19,8 +19,11 @@ import {
   Star as StarIcon,
   TipsAndUpdates as TipsIcon,
 } from "@mui/icons-material";
+import { useTranslation } from 'react-i18next';
 
 const HowToPlay = () => {
+  const { t } = useTranslation();
+
   return (
     <Box
       sx={{
@@ -43,13 +46,13 @@ const HowToPlay = () => {
         }}
       >
         <Typography variant="h3" gutterBottom align="center">
-          How to Play Howard Trivia
+          {t('how_to_play_title')}
         </Typography>
         <Divider sx={{ marginY: "30px" }} />
 
         {/* Section 1: Logging In */}
         <Typography variant="h5" gutterBottom>
-          1. Getting Started: Logging In
+          {t('how_to_play_section_1_title')}
         </Typography>
         <List>
           <ListItem>
@@ -57,8 +60,8 @@ const HowToPlay = () => {
               <LoginIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="a. Access the Howard Trivia Application"
-              secondary="Open your preferred web browser and navigate to the Howard Trivia URL."
+              primary={t('how_to_play_section_1_step_a')}
+              secondary={t('how_to_play_section_1_step_a_desc')}
             />
           </ListItem>
           <ListItem>
@@ -66,8 +69,8 @@ const HowToPlay = () => {
               <LoginIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="b. Choose Your Sign-In Method"
-              secondary="You can sign in using your Email and Password or opt for Google Sign-In for quicker authentication."
+              primary={t('how_to_play_section_1_step_b')}
+              secondary={t('how_to_play_section_1_step_b_desc')}
             />
           </ListItem>
           <ListItem>
@@ -75,8 +78,8 @@ const HowToPlay = () => {
               <LoginIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="c. Complete the Authentication Process"
-              secondary="Enter your credentials and click 'Login' or 'Sign Up' to access your account. If you encounter any issues, refer to the error messages displayed for guidance."
+              primary={t('how_to_play_section_1_step_c')}
+              secondary={t('how_to_play_section_1_step_c_desc')}
             />
           </ListItem>
           <ListItem>
@@ -84,8 +87,8 @@ const HowToPlay = () => {
               <LoginIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="d. Navigate to the Dashboard"
-              secondary="Upon successful login, you will be redirected to your personalized dashboard, where you can access all features of Howard Trivia."
+              primary={t('how_to_play_section_1_step_d')}
+              secondary={t('how_to_play_section_1_step_d_desc')}
             />
           </ListItem>
         </List>
@@ -94,7 +97,7 @@ const HowToPlay = () => {
 
         {/* Section 2: Creating a Challenge */}
         <Typography variant="h5" gutterBottom>
-          2. Creating Your Own Challenge
+          {t('how_to_play_section_2_title')}
         </Typography>
         <List>
           <ListItem>
@@ -102,8 +105,8 @@ const HowToPlay = () => {
               <CreateIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="a. Access the 'Create Challenge' Section"
-              secondary="From your dashboard, click on the 'Create Challenge' button to begin crafting your own Howard University-related challenge."
+              primary={t('how_to_play_section_2_step_a')}
+              secondary={t('how_to_play_section_2_step_a_desc')}
             />
           </ListItem>
           <ListItem>
@@ -111,8 +114,8 @@ const HowToPlay = () => {
               <CreateIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="b. Fill in Challenge Details"
-              secondary="Provide a compelling title and a detailed description for your challenge. Ensure that your questions are clear, accurate, and relevant to Howard University."
+              primary={t('how_to_play_section_2_step_b')}
+              secondary={t('how_to_play_section_2_step_b_desc')}
             />
           </ListItem>
           <ListItem>
@@ -120,8 +123,8 @@ const HowToPlay = () => {
               <CreateIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="c. Add Questions"
-              secondary="For each challenge, add a series of multiple-choice questions. Each question should have at least two options, with one marked as the correct answer. Optionally, you can include a hint to assist players after incorrect attempts."
+              primary={t('how_to_play_section_2_step_c')}
+              secondary={t('how_to_play_section_2_step_c_desc')}
             />
           </ListItem>
           <ListItem>
@@ -129,8 +132,8 @@ const HowToPlay = () => {
               <CreateIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="d. Review and Publish"
-              secondary="Once all details are filled out, review your challenge for accuracy and completeness. Click 'Publish' to make your challenge available to other users. **Note:** Your score will not be counted if you play the challenge you created."
+              primary={t('how_to_play_section_2_step_d')}
+              secondary={t('how_to_play_section_2_step_d_desc')}
             />
           </ListItem>
         </List>
@@ -139,7 +142,7 @@ const HowToPlay = () => {
 
         {/* Section 3: Playing a Challenge */}
         <Typography variant="h5" gutterBottom>
-          3. Playing a Challenge
+          {t('how_to_play_section_3_title')}
         </Typography>
         <List>
           <ListItem>
@@ -147,8 +150,8 @@ const HowToPlay = () => {
               <PlayCircleOutlineIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="a. Browse Available Challenges"
-              secondary="On your dashboard, explore the list of available Howard Trivia challenges. You can use the search bar to find specific challenges or filter them based on categories."
+              primary={t('how_to_play_section_3_step_a')}
+              secondary={t('how_to_play_section_3_step_a_desc')}
             />
           </ListItem>
           <ListItem>
@@ -156,8 +159,8 @@ const HowToPlay = () => {
               <PlayCircleOutlineIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="b. Select a Challenge to Play"
-              secondary="Click on the 'Play Challenge' button next to your chosen challenge to start playing. **Important:** Your score will not be counted if you play the same challenge more than once."
+              primary={t('how_to_play_section_3_step_b')}
+              secondary={t('how_to_play_section_3_step_b_desc')}
             />
           </ListItem>
           <ListItem>
@@ -165,8 +168,8 @@ const HowToPlay = () => {
               <PlayCircleOutlineIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="c. Answer Questions"
-              secondary="Respond to each multiple-choice question. You have two attempts to answer each question correctly."
+              primary={t('how_to_play_section_3_step_c')}
+              secondary={t('how_to_play_section_3_step_c_desc')}
             />
           </ListItem>
           <ListItem>
@@ -174,8 +177,8 @@ const HowToPlay = () => {
               <PlayCircleOutlineIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="d. Utilize Hints"
-              secondary="After two incorrect attempts on a question, a hint will be provided to help you deduce the correct answer."
+              primary={t('how_to_play_section_3_step_d')}
+              secondary={t('how_to_play_section_3_step_d_desc')}
             />
           </ListItem>
           <ListItem>
@@ -183,8 +186,8 @@ const HowToPlay = () => {
               <PlayCircleOutlineIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="e. Complete the Challenge"
-              secondary="Upon answering all questions, your total score will be calculated based on correct answers. If it's your first time playing this challenge, your score will be added to the leaderboard."
+              primary={t('how_to_play_section_3_step_e')}
+              secondary={t('how_to_play_section_3_step_e_desc')}
             />
           </ListItem>
           <ListItem>
@@ -192,8 +195,8 @@ const HowToPlay = () => {
               <PlayCircleOutlineIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="f. Review Your Performance"
-              secondary="After completing the challenge, review your answers and scores. Reflect on areas of strength and opportunities for improvement."
+              primary={t('how_to_play_section_3_step_f')}
+              secondary={t('how_to_play_section_3_step_f_desc')}
             />
           </ListItem>
         </List>
@@ -202,7 +205,7 @@ const HowToPlay = () => {
 
         {/* Section 4: Understanding the Scoring System */}
         <Typography variant="h5" gutterBottom>
-          4. Understanding the Scoring System
+          {t('how_to_play_section_4_title')}
         </Typography>
         <List>
           <ListItem>
@@ -210,8 +213,8 @@ const HowToPlay = () => {
               <StarIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="a. Earning Points"
-              secondary="Each correct answer awards you 10 points. The total score for a challenge is the sum of points from all correct answers."
+              primary={t('how_to_play_section_4_step_a')}
+              secondary={t('how_to_play_section_4_step_a_desc')}
             />
           </ListItem>
           <ListItem>
@@ -219,8 +222,8 @@ const HowToPlay = () => {
               <StarIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="b. Leaderboard Rankings"
-              secondary="Your cumulative scores from all challenges are displayed on the leaderboard. Strive to climb the rankings by participating in more challenges and improving your scores. The user with the highest score will receive exclusive Howard University merchandise!"
+              primary={t('how_to_play_section_4_step_b')}
+              secondary={t('how_to_play_section_4_step_b_desc')}
             />
           </ListItem>
           <ListItem>
@@ -228,12 +231,8 @@ const HowToPlay = () => {
               <StarIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="c. Score Eligibility Rules"
-              secondary="To maintain fairness:
-              
-                Your score will not be counted if you play the challenge you created.
-                Your score will not be counted if you play the same challenge multiple times.
-              "
+              primary={t('how_to_play_section_4_step_c')}
+              secondary={t('how_to_play_section_4_step_c_desc')}
             />
           </ListItem>
         </List>
@@ -242,7 +241,7 @@ const HowToPlay = () => {
 
         {/* Section 5: Tips and Best Practices */}
         <Typography variant="h5" gutterBottom>
-          5. Tips and Best Practices
+          {t('how_to_play_section_5_title')}
         </Typography>
         <List>
           <ListItem>
@@ -250,8 +249,8 @@ const HowToPlay = () => {
               <TipsIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="a. Take Your Time"
-              secondary="Read each question carefully to increase your chances of selecting the correct answer."
+              primary={t('how_to_play_section_5_step_a')}
+              secondary={t('how_to_play_section_5_step_a_desc')}
             />
           </ListItem>
           <ListItem>
@@ -259,8 +258,8 @@ const HowToPlay = () => {
               <TipsIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="b. Use Hints Wisely"
-              secondary="Hints are available after two incorrect attempts. Use them strategically to maximize your score."
+              primary={t('how_to_play_section_5_step_b')}
+              secondary={t('how_to_play_section_5_step_b_desc')}
             />
           </ListItem>
           <ListItem>
@@ -268,8 +267,8 @@ const HowToPlay = () => {
               <TipsIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="c. Regular Participation"
-              secondary="Engage in multiple challenges regularly to improve your knowledge about Howard University and climb the leaderboard."
+              primary={t('how_to_play_section_5_step_c')}
+              secondary={t('how_to_play_section_5_step_c_desc')}
             />
           </ListItem>
           <ListItem>
@@ -277,8 +276,8 @@ const HowToPlay = () => {
               <TipsIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="d. Create Engaging Challenges"
-              secondary="If you're creating challenges, ensure your questions are clear, varied, and provide a good balance of difficulty to engage players effectively."
+              primary={t('how_to_play_section_5_step_d')}
+              secondary={t('how_to_play_section_5_step_d_desc')}
             />
           </ListItem>
           <ListItem>
@@ -286,8 +285,8 @@ const HowToPlay = () => {
               <TipsIcon color="primary" />
             </ListItemIcon>
             <ListItemText
-              primary="e. Review Your Performance"
-              secondary="After completing a challenge, review your answers to understand areas for improvement."
+              primary={t('how_to_play_section_5_step_e')}
+              secondary={t('how_to_play_section_5_step_e_desc')}
             />
           </ListItem>
         </List>
@@ -296,7 +295,7 @@ const HowToPlay = () => {
 
         <Box sx={{ marginTop: "40px", textAlign: "center" }}>
           <Typography variant="body2" color="textSecondary">
-            © {new Date().getFullYear()} Howard Trivia. All rights reserved.
+            {t('how_to_play_footer', { year: new Date().getFullYear() })}
           </Typography>
         </Box>
       </Container>

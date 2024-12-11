@@ -1,29 +1,35 @@
 // src/i18n.js
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
-// Example translations (extend as needed)
+// Import translation files
+import translationEN from './locales/en/translation.json';
+import translationFR from './locales/fr/translation.json';
+import translationES from './locales/es/translation.json';
+
+// Define the available translations
 const resources = {
   en: {
-    translation: {
-      createChallenge: "Create Challenge",
-      playChallenges: "Play Challenges",
-      leaderboard: "Leaderboard",
-      howToPlay: "How to Play",
-      loginWithGoogle: "Login with Google",
-      logout: "Logout",
-    },
+    translation: translationEN,
   },
-  // Add more languages here
+  fr: {
+    translation: translationFR,
+  },
+  es: {
+    translation: translationES,
+  },
 };
 
+// Initialize i18next
 i18n
-  .use(initReactI18next)
+  .use(LanguageDetector) // Detects user language
+  .use(initReactI18next) // Passes i18n down to react-i18next
   .init({
     resources,
-    lng: "en", // Default language
+    fallbackLng: 'en', // Default language
     interpolation: {
-      escapeValue: false,
+      escapeValue: false, // React already protects from XSS
     },
   });
 

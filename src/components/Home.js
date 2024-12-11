@@ -3,8 +3,11 @@ import React from "react";
 import { Box, Typography, Button, Container, Grid, Paper } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 import ChallengeHubLogo from "../assets/logo.png"; // Ensure the path is correct
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <Box
       sx={{
@@ -33,12 +36,12 @@ const Home = () => {
 
       {/* Title */}
       <Typography variant="h2" gutterBottom sx={{ fontWeight: "bold" }}>
-        Welcome to Howard University Trivia
+        {t('welcome')}
       </Typography>
 
       {/* Subtitle */}
       <Typography variant="h5" gutterBottom>
-        Create, Play, and Learn about HU through Gamified Challenges!
+        {t('create_play_learn')}
       </Typography>
 
       {/* Buttons */}
@@ -65,7 +68,7 @@ const Home = () => {
             },
           }}
         >
-          Create a Challenge
+          {t('create_challenge')}
         </Button>
         <Button
           variant="contained"
@@ -81,7 +84,7 @@ const Home = () => {
             },
           }}
         >
-          Play Challenges
+          {t('play_challenges')}
         </Button>
         <Button
           variant="outlined"
@@ -98,7 +101,7 @@ const Home = () => {
             },
           }}
         >
-          How to Play
+          {t('how_to_play')}
         </Button>
       </Container>
     </Box>

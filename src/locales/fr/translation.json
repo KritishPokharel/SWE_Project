@@ -1,123 +1,86 @@
 {
-  "howToPlay": {
-    "title": "Comment Jouer à Howard Trivia",
-    "sections": {
-      "login": {
-        "heading": "1. Commencer : Se Connecter",
-        "steps": {
-          "a": {
-            "title": "a. Accédez à l'Application Howard Trivia",
-            "description": "Ouvrez votre navigateur web préféré et naviguez vers l'URL de Howard Trivia."
-          },
-          "b": {
-            "title": "b. Choisissez Votre Méthode de Connexion",
-            "description": "Vous pouvez vous connecter en utilisant votre Email et Mot de Passe ou opter pour la Connexion Google pour une authentification plus rapide."
-          },
-          "c": {
-            "title": "c. Complétez le Processus d'Authentification",
-            "description": "Entrez vos identifiants et cliquez sur 'Connexion' ou 'S'inscrire' pour accéder à votre compte. Si vous rencontrez des problèmes, consultez les messages d'erreur affichés pour obtenir de l'aide."
-          },
-          "d": {
-            "title": "d. Naviguez vers le Tableau de Bord",
-            "description": "Après une connexion réussie, vous serez redirigé vers votre tableau de bord personnalisé, où vous pourrez accéder à toutes les fonctionnalités de Howard Trivia."
-          }
-        }
-      },
-      "createChallenge": {
-        "heading": "2. Créer Votre Propre Défi",
-        "steps": {
-          "a": {
-            "title": "a. Accédez à la Section 'Créer Défi'",
-            "description": "Depuis votre tableau de bord, cliquez sur le bouton 'Créer Défi' pour commencer à concevoir votre propre défi lié à l'Université Howard."
-          },
-          "b": {
-            "title": "b. Remplissez les Détails du Défi",
-            "description": "Fournissez un titre attrayant et une description détaillée pour votre défi. Assurez-vous que vos questions sont claires, précises et pertinentes pour l'Université Howard."
-          },
-          "c": {
-            "title": "c. Ajouter des Questions",
-            "description": "Pour chaque défi, ajoutez une série de questions à choix multiple. Chaque question doit avoir au moins deux options, dont une marquée comme réponse correcte. Optionnellement, vous pouvez inclure une astuce pour aider les joueurs après des tentatives incorrectes."
-          },
-          "d": {
-            "title": "d. Revoir et Publier",
-            "description": "Une fois tous les détails remplis, révisez votre défi pour en assurer l'exactitude et l'exhaustivité. Cliquez sur 'Publier' pour rendre votre défi disponible pour les autres utilisateurs. **Note :** Votre score ne sera pas comptabilisé si vous jouez au défi que vous avez créé."
-          }
-        }
-      },
-      "playChallenge": {
-        "heading": "3. Jouer à un Défi",
-        "steps": {
-          "a": {
-            "title": "a. Parcourez les Défis Disponibles",
-            "description": "Dans votre tableau de bord, explorez la liste des défis disponibles de Howard Trivia. Vous pouvez utiliser la barre de recherche pour trouver des défis spécifiques ou les filtrer en fonction des catégories."
-          },
-          "b": {
-            "title": "b. Sélectionnez un Défi à Jouer",
-            "description": "Cliquez sur le bouton 'Jouer Défi' à côté du défi choisi pour commencer à jouer. **Important :** Votre score ne sera pas comptabilisé si vous jouez au même défi plus d'une fois."
-          },
-          "c": {
-            "title": "c. Répondez aux Questions",
-            "description": "Répondez à chaque question à choix multiple. Vous avez deux tentatives pour répondre correctement à chaque question."
-          },
-          "d": {
-            "title": "d. Utilisez les Astuces",
-            "description": "Après deux tentatives incorrectes sur une question, une astuce sera fournie pour vous aider à déduire la réponse correcte."
-          },
-          "e": {
-            "title": "e. Complétez le Défi",
-            "description": "Après avoir répondu à toutes les questions, votre score total sera calculé en fonction des réponses correctes. Si c'est votre première fois à jouer à ce défi, votre score sera ajouté au tableau des leaders."
-          },
-          "f": {
-            "title": "f. Révisez Vos Performances",
-            "description": "Après avoir complété le défi, révisez vos réponses et scores. Réfléchissez sur vos points forts et les opportunités d'amélioration."
-          }
-        }
-      },
-      "scoringSystem": {
-        "heading": "4. Comprendre le Système de Points",
-        "points": {
-          "a": {
-            "title": "a. Gagner des Points",
-            "description": "Chaque réponse correcte vous rapporte 10 points. Le score total pour un défi est la somme des points de toutes les réponses correctes."
-          },
-          "b": {
-            "title": "b. Classements du Tableau des Leaders",
-            "description": "Vos scores cumulés de tous les défis sont affichés sur le tableau des leaders. Efforcez-vous de grimper dans les classements en participant à plus de défis et en améliorant vos scores. L'utilisateur avec le score le plus élevé recevra des articles exclusifs de l'Université Howard !"
-          },
-          "c": {
-            "title": "c. Règles d'Éligibilité des Points",
-            "description": "Pour maintenir l'équité :\n- Votre score ne sera pas comptabilisé si vous jouez au défi que vous avez créé.\n- Votre score ne sera pas comptabilisé si vous jouez au même défi plusieurs fois."
-          }
-        }
-      },
-      "tips": {
-        "heading": "5. Conseils et Meilleures Pratiques",
-        "tipsList": {
-          "a": {
-            "title": "a. Prenez Votre Temps",
-            "description": "Lisez chaque question attentivement pour augmenter vos chances de sélectionner la réponse correcte."
-          },
-          "b": {
-            "title": "b. Utilisez les Astuces Sagement",
-            "description": "Les astuces sont disponibles après deux tentatives incorrectes. Utilisez-les stratégiquement pour maximiser votre score."
-          },
-          "c": {
-            "title": "c. Participation Régulière",
-            "description": "Participez régulièrement à plusieurs défis pour améliorer vos connaissances sur l'Université Howard et grimper dans le tableau des leaders."
-          },
-          "d": {
-            "title": "d. Créez des Défis Engagés",
-            "description": "Si vous créez des défis, assurez-vous que vos questions sont claires, variées et offrent un bon équilibre de difficulté pour engager efficacement les joueurs."
-          },
-          "e": {
-            "title": "e. Révisez Vos Performances",
-            "description": "Après avoir complété un défi, révisez vos réponses pour comprendre les domaines d'amélioration."
-          }
-        }
-      },
-      "footer": {
-        "text": "© {{year}} Howard Trivia. Tous droits réservés."
-      }
-    }
-  }
+  "welcome": "Bienvenue au Trivia de l'Université Howard",
+  "create_play_learn": "Créez, jouez et découvrez HU grâce à des défis gamifiés !",
+  "create_your_challenge": "Créez votre défi",
+  "challenge_title": "Titre du défi",
+  "challenge_description": "Description du défi",
+  "add_a_question": "Ajouter une question",
+  "question": "Question",
+  "option": "Option",
+  "correct_answer": "Réponse correcte",
+  "hint": "Indice",
+  "add_question_button": "Ajouter une question",
+  "questions_added": "Questions ajoutées",
+  "delete_challenge": "Supprimer le défi",
+  "submit_challenge": "Soumettre le défi",
+  "play_challenges": "Jouer aux défis",
+  "how_to_play": "Comment jouer",
+  "leaderboard": "Classement",
+  "login": "Connexion",
+  "logout": "Déconnexion",
+  "my_challenges": "Mes défis",
+  "please_log_in": "Veuillez vous connecter pour créer un défi.",
+  "error": "Erreur",
+  "fill_all_fields": "Veuillez remplir tous les champs pour la question.",
+  "correct_answer_must_match": "La réponse correcte doit correspondre à l'une des options fournies.",
+  "fill_all_fields_and_add_question": "Veuillez remplir tous les champs et ajouter au moins une question.",
+  "challenge_created_successfully": "Défi créé avec succès !",
+  "error_creating_challenge": "Erreur lors de la création du défi. Veuillez réessayer.",
+  "create_challenge": "Créer un défi",
+  "play_challenge": "Jouer au défi",
+  "select_language": "Choisir la langue",
+  "how_to_play_title": "Comment jouer à Trivia Howard",
+  "language_english": "Anglais",
+  "language_french": "Français",
+  "language_spanish": "Espagnol",
+  "how_to_play_section_1_title": "1. Commencer : Se connecter",
+  "how_to_play_section_1_step_a": "a. Accéder à l'application Trivia Howard",
+  "how_to_play_section_1_step_a_desc": "Ouvrez votre navigateur Web préféré et accédez à l'URL de Trivia Howard.",
+  "how_to_play_section_1_step_b": "b. Choisissez votre méthode de connexion",
+  "how_to_play_section_1_step_b_desc": "Vous pouvez vous connecter en utilisant votre e-mail et votre mot de passe ou opter pour la connexion Google pour une authentification plus rapide.",
+  "how_to_play_section_1_step_c": "c. Complétez le processus d'authentification",
+  "how_to_play_section_1_step_c_desc": "Entrez vos identifiants et cliquez sur 'Connexion' ou 'Inscription' pour accéder à votre compte. Si vous rencontrez des problèmes, référez-vous aux messages d'erreur affichés pour obtenir de l'aide.",
+  "how_to_play_section_1_step_d": "d. Naviguez vers le tableau de bord",
+  "how_to_play_section_1_step_d_desc": "Après une connexion réussie, vous serez redirigé vers votre tableau de bord personnalisé, où vous pourrez accéder à toutes les fonctionnalités de Trivia Howard.",
+  "how_to_play_section_2_title": "2. Créer votre propre défi",
+  "how_to_play_section_2_step_a": "a. Accéder à la section 'Créer un défi'",
+  "how_to_play_section_2_step_a_desc": "Depuis votre tableau de bord, cliquez sur le bouton 'Créer un défi' pour commencer à créer votre propre défi lié à l'Université Howard.",
+  "how_to_play_section_2_step_b": "b. Remplissez les détails du défi",
+  "how_to_play_section_2_step_b_desc": "Fournissez un titre accrocheur et une description détaillée pour votre défi. Assurez-vous que vos questions sont claires, précises et pertinentes pour l'Université Howard.",
+  "how_to_play_section_2_step_c": "c. Ajouter des questions",
+  "how_to_play_section_2_step_c_desc": "Pour chaque défi, ajoutez une série de questions à choix multiple. Chaque question doit comporter au moins deux options, dont une marquée comme réponse correcte. Optionnellement, vous pouvez inclure un indice pour aider les joueurs après des tentatives incorrectes.",
+  "how_to_play_section_2_step_d": "d. Réviser et publier",
+  "how_to_play_section_2_step_d_desc": "Une fois tous les détails remplis, révisez votre défi pour en assurer l'exactitude et la complétude. Cliquez sur 'Publier' pour rendre votre défi disponible aux autres utilisateurs. **Remarque :** Votre score ne sera pas comptabilisé si vous jouez au défi que vous avez créé.",
+  "how_to_play_section_3_title": "3. Jouer à un défi",
+  "how_to_play_section_3_step_a": "a. Parcourez les défis disponibles",
+  "how_to_play_section_3_step_a_desc": "Sur votre tableau de bord, explorez la liste des défis Trivia Howard disponibles. Vous pouvez utiliser la barre de recherche pour trouver des défis spécifiques ou les filtrer en fonction des catégories.",
+  "how_to_play_section_3_step_b": "b. Sélectionnez un défi à jouer",
+  "how_to_play_section_3_step_b_desc": "Cliquez sur le bouton 'Jouer au défi' à côté de votre défi choisi pour commencer à jouer. **Important :** Votre score ne sera pas comptabilisé si vous jouez au même défi plus d'une fois.",
+  "how_to_play_section_3_step_c": "c. Répondez aux questions",
+  "how_to_play_section_3_step_c_desc": "Répondez à chaque question à choix multiple. Vous avez deux tentatives pour répondre correctement à chaque question.",
+  "how_to_play_section_3_step_d": "d. Utilisez les indices",
+  "how_to_play_section_3_step_d_desc": "Après deux tentatives incorrectes sur une question, un indice sera fourni pour vous aider à déduire la réponse correcte.",
+  "how_to_play_section_3_step_e": "e. Terminez le défi",
+  "how_to_play_section_3_step_e_desc": "Après avoir répondu à toutes les questions, votre score total sera calculé en fonction des réponses correctes. Si c'est la première fois que vous jouez à ce défi, votre score sera ajouté au classement.",
+  "how_to_play_section_3_step_f": "f. Révisez votre performance",
+  "how_to_play_section_3_step_f_desc": "Après avoir terminé le défi, révisez vos réponses et vos scores. Réfléchissez aux domaines de force et aux opportunités d'amélioration.",
+  "how_to_play_section_4_title": "4. Comprendre le système de score",
+  "how_to_play_section_4_step_a": "a. Gagner des points",
+  "how_to_play_section_4_step_a_desc": "Chaque réponse correcte vous rapporte 10 points. Le score total pour un défi est la somme des points de toutes les réponses correctes.",
+  "how_to_play_section_4_step_b": "b. Classement",
+  "how_to_play_section_4_step_b_desc": "Vos scores cumulés de tous les défis sont affichés sur le classement. Efforcez-vous de grimper dans les classements en participant à plus de défis et en améliorant vos scores. L'utilisateur avec le score le plus élevé recevra des produits exclusifs de l'Université Howard !",
+  "how_to_play_section_4_step_c": "c. Règles d'éligibilité des scores",
+  "how_to_play_section_4_step_c_desc": "Pour maintenir l'équité :\n\nVotre score ne sera pas comptabilisé si vous jouez au défi que vous avez créé.\nVotre score ne sera pas comptabilisé si vous jouez au même défi plusieurs fois.",
+  "how_to_play_section_5_title": "5. Conseils et meilleures pratiques",
+  "how_to_play_section_5_step_a": "a. Prenez votre temps",
+  "how_to_play_section_5_step_a_desc": "Lisez chaque question attentivement pour augmenter vos chances de sélectionner la bonne réponse.",
+  "how_to_play_section_5_step_b": "b. Utilisez les indices judicieusement",
+  "how_to_play_section_5_step_b_desc": "Les indices sont disponibles après deux tentatives incorrectes. Utilisez-les stratégiquement pour maximiser votre score.",
+  "how_to_play_section_5_step_c": "c. Participation régulière",
+  "how_to_play_section_5_step_c_desc": "Participez régulièrement à plusieurs défis pour améliorer vos connaissances sur l'Université Howard et grimper dans le classement.",
+  "how_to_play_section_5_step_d": "d. Créez des défis engageants",
+  "how_to_play_section_5_step_d_desc": "Si vous créez des défis, assurez-vous que vos questions sont claires, variées et offrent un bon équilibre de difficulté pour engager efficacement les joueurs.",
+  "how_to_play_section_5_step_e": "e. Révisez votre performance",
+  "how_to_play_section_5_step_e_desc": "Après avoir terminé un défi, révisez vos réponses pour comprendre les domaines à améliorer.",
+  "how_to_play_footer": "© {{year}} Trivia Howard. Tous droits réservés."
 }
